@@ -56,12 +56,12 @@ public class LesBois {
         System.out.println("[O] - Oui");
         System.out.println("[N] - Non\n");
         System.out.println("[Q] - Quitter le jeu");
-        Scanner q = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
-        switch (q.nextLine()) {
+        switch (scan.nextLine()) {
             case "Q":
-                System.out.println("Ok bon bah à la prochaine !.");
-                q.close();
+                System.out.println("Ok bon bah à la prochaine !");
+                scan.close();
                 break;
 
             case "O":
@@ -88,7 +88,7 @@ public class LesBois {
         Random random_Distance = new Random();
         this.distance = random_Distance.nextInt(15-8) + 8;
         Scanner scanChoix = new Scanner(System.in);
-        int joueurInput;
+       
         boolean exit = true;
         
         while(exit){
@@ -105,47 +105,10 @@ public class LesBois {
                     exit = false;
                     etapeOne_game(bois);
                 }else if(this.distance < 15 && this.distance != 0){
-                    System.out.println(perso.getNom() + "(" + perso.getVie() + "pv) a capturé " + perso.getCage_Ptimos().size()+" Ptimo(s).\n");
-                    System.out.println("Vous êtes à " + this.distance + " d'un "+ mos.nomPtimos +", que voulez-vous faire ?\n");
-                    System.out.println("[1] - Observer");
-                    System.out.println("[2] - Se Rapprocher");
-                    System.out.println("[3] - Lancer une friandise (x"+ perso.getNbrFriandise()+")");
-                    System.out.println("[4] - faire une danse impressionnate");
-                    System.out.println("[5] - Tirer une flechette endormante (x"+ perso.getFlechette()+")\n");
-                    System.out.println("[0] - Laisser le "+ mos.nomPtimos+" en liberté");
-
-                    joueurInput = scanChoix.nextInt();
-                        
-                    switch (joueurInput) {
-                        case 0:
-                            perso.laissePartir(mos);
-                            exit = false;
-                            etapeOne_game(bois);
-                            break;
-                        case 1:
-                            perso.observer(mos);
-                            attaque_Combo(mos,bois);
-                            break;
-                        case 2:
-                            perso.se_Rappocher(bois);
-                            attaque_Combo(mos,bois);
-                            break;
-                        case 3:
-                            perso.lance_Friandise(mos);
-                            attaque_Combo(mos,bois);
-                            break;
-                        case 4:
-                            perso.danse_Impressionnate(mos);
-                            attaque_Combo(mos,bois);
-                            break;
-                        case 5:
-                            perso.flechette_Endormante(mos, bois);
-                            attaque_Combo(mos,bois);
-                            break;
-                        default:
-                            System.err.println("Je n'ai pas compris !");
-                            break;
-                    }
+                    //Affiche les choix du joueur pour capturer le ptimo
+                    etapeThree_SysoChoice(mos);
+                    //Affiche le switch
+                    etapeThree_Switch(mos,bois);
                 }                             
             }else{
                 exit = false;
@@ -153,6 +116,42 @@ public class LesBois {
                 scanChoix.close();
             }          
         }       
+    }
+
+    public void etapeThree_Switch(Ptimos mos, LesBois bois){
+        Scanner scanChoix = new Scanner(System.in); 
+        int joueurInput = scanChoix.nextInt();
+        boolean exit = true;       
+        switch (joueurInput) {
+            case 0:
+                perso.laissePartir(mos);
+                exit = false;
+                etapeOne_game(bois);
+                break;
+            case 1:
+                perso.observer(mos);
+                attaque_Combo(mos,bois);
+                break;
+            case 2:
+                perso.se_Rappocher(bois);
+                attaque_Combo(mos,bois);
+                break;
+            case 3:
+                perso.lance_Friandise(mos);
+                attaque_Combo(mos,bois);
+                break;
+            case 4:
+                perso.danse_Impressionnate(mos);
+                attaque_Combo(mos,bois);
+                break;
+            case 5:
+                perso.flechette_Endormante(mos, bois);
+                attaque_Combo(mos,bois);
+                break;
+            default:
+                System.err.println("Je n'ai pas compris !");
+                break;
+        }
     }
 
     public void attaque_Combo(Ptimos mos, LesBois bois){
@@ -166,6 +165,17 @@ public class LesBois {
             ((Magie_commune) mos).attaque_mag_commune(); 
         }
         System.out.println("----------------------------------------------------------------\n");   
+    }
+
+    public void etapeThree_SysoChoice(Ptimos mos){
+        System.out.println(perso.getNom() + "(" + perso.getVie() + "pv) a capturé " + perso.getCage_Ptimos().size()+" Ptimo(s).\n");
+        System.out.println("Vous êtes à " + this.distance + " d'un "+ mos.nomPtimos +", que voulez-vous faire ?\n");
+        System.out.println("[1] - Observer");
+        System.out.println("[2] - Se Rapprocher");
+        System.out.println("[3] - Lancer une friandise (x"+ perso.getNbrFriandise()+")");
+        System.out.println("[4] - faire une danse impressionnate");
+        System.out.println("[5] - Tirer une flechette endormante (x"+ perso.getFlechette()+")\n");
+        System.out.println("[0] - Laisser le "+ mos.nomPtimos+" en liberté");
     }
 
 }

@@ -161,7 +161,8 @@ public class Joueurs { //Singleton (permet d'utiliser la Class joueur alias juli
         */
         if(this.flechette == 1){
             if(Math.random() >= 0.5){
-                System.out.println(" Vous avez touché votre cible ! " + mos.nomPtimos + " est capturé !\n");
+                System.out.println("Vous avez touché votre cible ! " + mos.nomPtimos + " est capturé !\n");
+                System.out.println("----------------------------------------------------------------\n");  
                 cage_Ptimos.add(mos.nomPtimos);
                 this.flechette = 0;
                 bois.etapeOne_game(bois); 
