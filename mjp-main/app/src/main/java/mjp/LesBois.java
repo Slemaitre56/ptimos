@@ -56,8 +56,8 @@ public class LesBois {
         System.out.println("[O] - Oui");
         System.out.println("[N] - Non\n");
         System.out.println("[Q] - Quitter le jeu");
+        
         Scanner scan = new Scanner(System.in);
-
         switch (scan.nextLine()) {
             case "Q":
                 System.out.println("Ok bon bah à la prochaine !");
@@ -95,13 +95,11 @@ public class LesBois {
             if(Joueurs.get_instance().getVie() > 0){
                  if(this.distance == 0){
                     perso.getCage_Ptimos().add(mos.nomPtimos);
-                    System.out.println("Vous avez attapé "+ mos.nomPtimos+" !\n");
-                    System.out.println("----------------------------------------------------------------\n");   
+                    System.out.println("Vous avez attapé "+ mos.nomPtimos+" !\n"); 
                     exit = false;
                     etapeOne_game(bois);
                 }else if(this.distance > 15) {
-                    System.out.println("Le " + mos.nomPtimos + " s'est échappé !\n");
-                    System.out.println("----------------------------------------------------------------\n");  
+                    System.out.println("Le " + mos.nomPtimos + " s'est échappé !\n");      
                     exit = false;
                     etapeOne_game(bois);
                 }else if(this.distance < 15 && this.distance != 0){
@@ -114,7 +112,8 @@ public class LesBois {
                 exit = false;
                 System.out.println("Game Over ! Tu n'as plus de vie et tout les Ptimos se sont enfuis !");
                 scanChoix.close();
-            }          
+            }
+        System.out.println("----------------------------------------------------------------\n");               
         }       
     }
 
