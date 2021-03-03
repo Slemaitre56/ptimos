@@ -31,7 +31,7 @@ public class App {
         LesBois bois = new LesBois();
 
         // Le jeu commence
-        // intro_game();
+        intro_game();
         bois.etapeOne_game(bois);
 
     }

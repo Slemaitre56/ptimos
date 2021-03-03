@@ -30,21 +30,20 @@ public class Partie {
     //Résultats affichés
     public void afficher_resultat(Ptimos mos, LesBois bois) {
         for (int i = 0; i < players.length; i++) {
-            System.out.print("Pokrank fait apparaître 5 cartes : ");
+            System.out.print("Pokrank fait apparaître 5 cartes : \n");
             // afficher mes 5 cartes
             for (int j = 0; j < players[0].getCards().length; j++) {
                 System.out.print("{" + players[i].getCardAtIndex(j).toString()+"}");
-                System.out.println("------- !! TADA !! -------");
             }
+            System.out.println("\n------- !! TADA !! -------\n");
             // affiche les combos
-
             if(players[i].countBrelan()== 1 && players[i].countPair() == 1){
-              System.out.print("FULL ! Et vous donne un coup de boule !");
+              System.out.print("FULL ! Et vous donne un coup de boule !\n");
               pok.attaque_Full();
             } 
 
             if(players[i].countCarre()== 1){
-                System.out.print("CARRE ! Et vous donne un coup de boule !");
+                System.out.print("CARRE ! Et vous donne un coup de boule !\n");
                 pok.attaque_Full();
             } 
 

@@ -19,16 +19,13 @@ public class Combo {
     
     //Récupere la position de la carte
     public Carte getCardAtIndex(int index) {
-        if (index >= 0 && index < MAX_CARD)
-            return cards[index];
-        else
-            return null;
+        if (index >= 0 && index < MAX_CARD) return cards[index];
+        else return null;
     }
     
    //Mofifie la position de la carte
     public void setCardAtIndex(Carte c, int index) {
-        if(index >= 0 && index < MAX_CARD)
-            cards[index] = c;
+        if(index >= 0 && index < MAX_CARD) cards[index] = c;
     }
     
     //Paire ou doubla paire 2 cartes identiques
@@ -36,9 +33,7 @@ public class Combo {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
             for (int j = i + 1; j < cards.length; j++) {   	
-                if (cards[i].getValeur().equals(cards[j].getValeur())){           	
-                    count++;
-                }
+                if (cards[i].getValeur().equals(cards[j].getValeur())) count++;    
             }
         }
         return count;
@@ -50,9 +45,7 @@ public class Combo {
         for (int i = 0; i < cards.length; i++) {
             for (int j = i + 1; j < cards.length; j++) { 
                 for(int k = j + 1; k<cards.length; k++)  {
-                    if (cards[i].getValeur().equals(cards[j].getValeur()) && cards[i].getValeur().equals(cards[k].getValeur())){           	
-                        count++;
-                    }
+                    if (cards[i].getValeur().equals(cards[j].getValeur()) && cards[i].getValeur().equals(cards[k].getValeur())) count++;
                 }	
             }
         }
@@ -66,9 +59,7 @@ public class Combo {
             for (int j = i + 1; j < cards.length; j++) { 
                 for(int k = j + 1; k<cards.length; k++)  {
                     for(int x = j + 1; x<cards.length; x++)  {
-                        if (cards[i].getValeur().equals(cards[j].getValeur()) && cards[j].getValeur().equals(cards[k].getValeur()) && cards[k].getValeur().equals(cards[x].getValeur())){           	
-                        count++;
-                        }
+                        if (cards[i].getValeur().equals(cards[j].getValeur()) && cards[j].getValeur().equals(cards[k].getValeur()) && cards[k].getValeur().equals(cards[x].getValeur())) count++;
                     }
                 }	
             }
@@ -81,14 +72,10 @@ public class Combo {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
             for (int j = i + 1; j < cards.length; j++) {
-                if (cards[i].getMotif().equals(cards[j].getMotif())) {
-                    count++;
-                }
+                if (cards[i].getMotif().equals(cards[j].getMotif())) count++;
             }
         }
-        if(count == 5)
-            return true;
-        else
-            return false;
+        if(count == 5) return true;
+        else return false;
     }    
 }

@@ -120,7 +120,7 @@ public class Joueurs { //Singleton (permet d'utiliser la Class joueur alias juli
         Random random_De_Rapprochement = new Random();
         int distance_Joueur = (int) random_De_Rapprochement.nextInt(8-3) + 3;
         bois.setDistance(bois.getDistance() - distance_Joueur);
-        System.out.println("Vous vous rapprochez de "+ distance_Joueur +" métres à vos risques et périls !\n");
+        System.out.println("Vous vous rapprochez de "+ distance_Joueur +"m à vos risques et périls !\n");
         
     }
 

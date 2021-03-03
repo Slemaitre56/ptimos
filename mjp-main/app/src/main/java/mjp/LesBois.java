@@ -56,14 +56,14 @@ public class LesBois {
         System.out.println("[O] - Oui");
         System.out.println("[N] - Non\n");
         System.out.println("[Q] - Quitter le jeu");
-        
+
         Scanner scan = new Scanner(System.in);
         switch (scan.nextLine()) {
             case "Q":
                 System.out.println("Ok bon bah à la prochaine !");
+                boolean exit = false;
                 scan.close();
                 break;
-
             case "O":
                 System.out.println("----------------------------------------------------------------\n");
                 etapeThree_game(mos, bois);
@@ -88,7 +88,6 @@ public class LesBois {
         Random random_Distance = new Random();
         this.distance = random_Distance.nextInt(15-8) + 8;
         Scanner scanChoix = new Scanner(System.in);
-       
         boolean exit = true;
         
         while(exit){
@@ -155,15 +154,13 @@ public class LesBois {
 
     public void attaque_Combo(Ptimos mos, LesBois bois){
 
-        if(mos.nomPtimos == "Pokrank"){
-            pok.attaque_magique_cartes(mos,bois);
-        }else{
+        if(mos.nomPtimos == "Pokrank") pok.attaque_magique_cartes(mos,bois);
+        else{
             mos.rugir(bois);
             mos.attaquer(bois);
             mos.eloigner(bois);
             ((Magie_commune) mos).attaque_mag_commune(); 
         }
-        System.out.println("----------------------------------------------------------------\n");   
     }
 
     public void etapeThree_SysoChoice(Ptimos mos){

@@ -30,9 +30,7 @@ class Ptimos implements Magie_commune{
             this.pts_Chance -= 5;
             this.pts_Dominance += 15;
             if(bois.getDistance() < 3){
-                if(Math.random() <= 0.5){
-                    attaquer(bois);
-                }
+                if(Math.random() <= 0.5) attaquer(bois);
             }else if(bois.getDistance() > 10) {
                 bois.setDistance(bois.getDistance()+2);
                 System.out.println(this.nomPtimos +" s'éloigner un peu !\n");
@@ -48,32 +46,24 @@ class Ptimos implements Magie_commune{
            3/ si dominance 31-55 =>assez frequent
            4/ si dominance 56+ =>très frequent
            5/ lance + souvent attaque magique commune si distance trop petite et stress haut
-        */
-          
-            if(this.pts_Dominance > 57) {
-                if(Math.random() <= 0.7){
-                    attaque_degats();
-                }
-            }else if (this.pts_Dominance > 30 && this.pts_Dominance < 56) {
-                if(Math.random() <= 0.5){
-                    attaque_degats();
-                }
-            }else if (this.pts_Dominance >= 0 && this.pts_Dominance < 32) {
-                if(Math.random() <= 0.3){
-                    attaque_degats();
-                }
-            }else if(this.pts_Stress > 70 && bois.getDistance() < 4){  
-                this.pts_Chance += 15;
-                attaque_mag_commune();
-            }
-      
+        */  
+        if(this.pts_Dominance > 57) {
+            if(Math.random() <= 0.7) attaque_degats();
+        }else if (this.pts_Dominance > 30 && this.pts_Dominance < 56) {
+            if(Math.random() <= 0.5) attaque_degats();
+        }else if (this.pts_Dominance >= 0 && this.pts_Dominance < 32) {
+            if(Math.random() <= 0.3) attaque_degats();
+        }
+        if(this.pts_Stress > 70 && bois.getDistance() < 4){  
+            this.pts_Chance += 15;
+            attaque_mag_commune();
+        }
     }
 
     void attaque_degats(){
         perso.setVie(perso.getVie()-7);
         if(this.nomPtimos == "Sacbleu") System.out.println(this.nomPtimos +"  vient de vous donner un coup de sac remplit de briques ! Vous perdez de la vie  !\n");
         if(this.nomPtimos == "Pyralia") System.out.println(this.nomPtimos +" vient de vous mordre à en perdre son dentier ! Vous perdez de la vie !\n");          
- 
     }
 
     void eloigner(LesBois bois){ // Possible Refacto !!
@@ -94,8 +84,8 @@ class Ptimos implements Magie_commune{
         if(this.pts_Dominance > 32 && this.pts_Dominance < 56){
             if(Math.random() <= 0.1){
                bois.setDistance(bois.getDistance() + distance_Ptimos); 
-               if(this.nomPtimos == "Sacbleu") System.out.println(this.nomPtimos +" s'éloigne en moon walk de " + distance_Ptimos + "!\n"); 
-               if(this.nomPtimos == "Pyralia") System.out.println(this.nomPtimos +" fait un salto arrière " + distance_Ptimos + " !\n"); 
+               if(this.nomPtimos == "Sacbleu") System.out.println(this.nomPtimos +" s'éloigne en moon walk de " + distance_Ptimos + "m !\n"); 
+               if(this.nomPtimos == "Pyralia") System.out.println(this.nomPtimos +" fait un salto arrière " + distance_Ptimos + " !m \n"); 
             }
         }
 
@@ -105,14 +95,10 @@ class Ptimos implements Magie_commune{
             attaque_mag_commune();
         }else if(this.pts_Stress > 74 && this.pts_Stress < 86){
             this.pts_Chance += 15;
-            if(Math.random() <= 0.3){
-                attaquer(bois);
-            }
+            if(Math.random() <= 0.3) attaquer(bois);
         }else if(this.pts_Stress > 54 && this.pts_Stress < 76){
             this.pts_Chance += 15;
-            if(Math.random() <= 0.2){
-                attaquer(bois);
-            }
+            if(Math.random() <= 0.2) attaquer(bois);
         }
         
     }

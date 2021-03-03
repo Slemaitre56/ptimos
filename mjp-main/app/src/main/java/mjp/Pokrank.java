@@ -1,6 +1,6 @@
 package mjp;
 
-public class Pokrank extends Ptimos implements Magie_commune{
+public class Pokrank extends Ptimos{
 
     private static Pokrank pok;
 
@@ -13,11 +13,9 @@ public class Pokrank extends Ptimos implements Magie_commune{
 
     // Création d'un singleton
     public static Pokrank get_instance(){
-        if(pok == null){
-            pok = new Pokrank("Pokrank");
-        }
-            return pok;
-        } 
+        if(pok == null) pok = new Pokrank("Pokrank");
+        return pok;
+    }    
 
 
     public void attaque_mag_commune() {
