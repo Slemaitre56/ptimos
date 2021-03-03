@@ -139,7 +139,7 @@ public class LesBois {
                             attaque_Combo(mos,bois);
                             break;
                         case 5:
-                            perso.flechette_Endormante(mos);
+                            perso.flechette_Endormante(mos, bois);
                             attaque_Combo(mos,bois);
                             break;
                         default:
@@ -156,12 +156,14 @@ public class LesBois {
     }
 
     public void attaque_Combo(Ptimos mos, LesBois bois){
-        mos.rugir(bois);
-        mos.attaquer(bois);
-        mos.eloigner(bois);
-        ((Magie_commune) mos).attaque_mag_commune();
+
         if(mos.nomPtimos == "Pokrank"){
             pok.attaque_magique_cartes(mos,bois);
+        }else{
+            mos.rugir(bois);
+            mos.attaquer(bois);
+            mos.eloigner(bois);
+            ((Magie_commune) mos).attaque_mag_commune(); 
         }
         System.out.println("----------------------------------------------------------------\n");   
     }

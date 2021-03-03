@@ -19,24 +19,12 @@ public class Pokrank extends Ptimos implements Magie_commune{
             return pok;
         } 
 
-    // Methodes astraites (voir Ptimos)
-    void rugir(LesBois bois) {}
-    void attaquer(LesBois bois) {}
-    void eloigner(LesBois bois) {}
 
     public void attaque_mag_commune() {
-        /* 1/ + la distance diminue + la chance attaque magique augmente
-           2/ si dominance = 100 => attaque magique
-           3/ aumente les dégats et augmente la dom
-        */
-        if(this.pts_Dominance > 99 || this.pts_Chance >40){
-            double coefficient = Math.random();
-            int coup = (int) (20 * coefficient);
-            perso.setVie(perso.getVie()- coup);
-            this.pts_Dominance -= 40;
-            this.pts_Chance -= 20;
-            System.out.println(this.nomPtimos + " utilise sa magie et vous donne des ampoules aux pieds !");
-        }
+        double coefficient = Math.random();
+        int coup = (int) (20 * coefficient);
+        perso.setVie(perso.getVie()- coup);
+        System.out.println(this.nomPtimos + " utilise sa magie et vous donne des ampoules aux pieds !");
     }
 
 
@@ -51,7 +39,7 @@ public class Pokrank extends Ptimos implements Magie_commune{
 
     // Attaque si full alors je libére les Ptimos
     public void attaque_Full(){
-        System.out.println("Pokrank vous assomme et libére tous vos Pitmos.....");
+        System.out.println("Pokrank vous assomme et libére tous vos Pitmos..... NyaK NYAKKK");
         perso.getCage_Ptimos().clear();
     }
     

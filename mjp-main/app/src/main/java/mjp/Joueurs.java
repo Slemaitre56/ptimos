@@ -153,7 +153,7 @@ public class Joueurs { //Singleton (permet d'utiliser la Class joueur alias juli
         System.out.println(mos.nomPtimos + " semble imprésionné et beaucoup moins féroce que précédement...\n");
     }
 
-    public void flechette_Endormante(Ptimos mos){
+    public void flechette_Endormante(Ptimos mos, LesBois bois){
         /* 
            1/ 50% chance 
            2/ si touche => capture du ptimo
@@ -163,7 +163,8 @@ public class Joueurs { //Singleton (permet d'utiliser la Class joueur alias juli
             if(Math.random() >= 0.5){
                 System.out.println(" Vous avez touché votre cible ! " + mos.nomPtimos + " est capturé !\n");
                 cage_Ptimos.add(mos.nomPtimos);
-                this.flechette = 0; 
+                this.flechette = 0;
+                bois.etapeOne_game(bois); 
             }else{
                 System.out.println("Vous avez raté votre cible ! " + mos.nomPtimos + " n'est pas content !\n");
                 mos.pts_Stress += 10;

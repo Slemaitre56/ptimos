@@ -34,16 +34,17 @@ public class Partie {
             // afficher mes 5 cartes
             for (int j = 0; j < players[0].getCards().length; j++) {
                 System.out.print("{" + players[i].getCardAtIndex(j).toString()+"}");
+                System.out.println("------- !! TADA !! -------");
             }
             // affiche les combos
 
             if(players[i].countBrelan()== 1 && players[i].countPair() == 1){
-              System.out.print("\nFULL ! Et vous donne un coup de boule !");
+              System.out.print("FULL ! Et vous donne un coup de boule !");
               pok.attaque_Full();
             } 
 
             if(players[i].countCarre()== 1){
-                System.out.print("\nCARRE ! Et vous donne un coup de boule !");
+                System.out.print("CARRE ! Et vous donne un coup de boule !");
                 pok.attaque_Full();
             } 
 
@@ -53,22 +54,22 @@ public class Partie {
             } 
 
             if(players[i].countBrelan() == 1){
-               System.out.print("\nBRELAN ! Il s'éloigne et s'éloigne ...\n"); 
+               System.out.print("BRELAN ! Il s'éloigne et s'éloigne ...\n"); 
                bois.setDistance(bois.getDistance() + 15);
             } 
 
             if(players[i].countPair() == 2){
-              System.out.print("\nDOUBLE PAIR ! Il semble se concentrer et ...\n");  
+              System.out.print("DOUBLE PAIR ! Il semble se concentrer et ...\n");  
               ((Magie_commune) mos).attaque_mag_commune(); 
             }  
 
             if(players[i].countPair() == 1){
-                System.out.print("\nPAIR ! Il semble se concentrer et ...\n");
-                ((Magie_commune) mos).attaque_mag_commune();
+                System.out.print("PAIR ! Il semble se concentrer et ...\n");
+              ((Magie_commune) mos).attaque_mag_commune();
             } 
             
-            if(players[i].countPair() < 0 && players[i].countBrelan() < 0 && players[i].isFlush() == false && players[i].countCarre()< 0){
-                System.out.print("\n Pokrank a raté son attaque magique ! \n");
+            if(players[i].countPair() < 1 && players[i].countBrelan() < 1 && players[i].isFlush() == false && players[i].countCarre()< 1){
+                System.out.print("Pokrank a raté son attaque magique ! \n");
                 pok.pts_Dominance -= 10;
             } 
             

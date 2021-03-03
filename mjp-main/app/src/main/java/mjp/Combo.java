@@ -31,7 +31,7 @@ public class Combo {
             cards[index] = c;
     }
     
-    //Compte les pairs
+    //Paire ou doubla paire 2 cartes identiques
     public int countPair() {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
@@ -44,6 +44,7 @@ public class Combo {
         return count;
     }
 
+    //Brelan 2 cartes identiques + 3 cartes identiques
     public int countBrelan() {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
@@ -58,6 +59,7 @@ public class Combo {
         return count;
     }
 
+    // Carré 4 cartes identiques
     public int countCarre() {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
@@ -74,7 +76,7 @@ public class Combo {
         return count;
     }
 
-    //checks if it is a flush or not i.e all five cards of same suit
+    //Flush : suite de carte
     public boolean isFlush() {
         int count = 0;
         for (int i = 0; i < cards.length; i++) {
